@@ -26,6 +26,7 @@
  </style>
 
 </head>
+<body>
 <!-- login From -->
 <div class="min-h-screen max-w-md mx-auto pt-52">
     
@@ -43,14 +44,14 @@
 
 
   <label class="label font-medium text-[16px] text-[#1F2937]">Username</label>
-  <input type="text" class="input w-full" placeholder="Enter Username" />
+  <input id="input-username" type="text" class="input w-full" placeholder="Enter Username" />
   <span class="mb-2 text-[#4A00FF] text-[14px]">Default: admin</span>
 
   <label class="label  font-medium text-[16px] text-[#1F2937]">Password</label>
-  <input type="password" class="input w-full" placeholder="Enter Password" />
+  <input id="input-password" type="password" class="input w-full" placeholder="Enter Password" />
   <span class=" text-[#4A00FF] text-[14px]">Default: admin123</span>
 
-  <button class="btn btn-primary mt-4">Sign In</button>
+  <button id="login-btn" class="btn btn-primary mt-4">Sign In</button>
 
 
   <!-- or -->
@@ -83,8 +84,9 @@
 </div>
 
 
+<!-- js script -->
+ <script src="./js/login.js"></script>
 
-<body>
     
 </body>
 </html>

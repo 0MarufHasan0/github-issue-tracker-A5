@@ -1,6 +1,16 @@
 // class/select
 const issueCount = document.getElementById('issue-count');
 const issuesCard= document.getElementById('issue-card');
+const loadingSpinner = document.getElementById('loading-spinner')
+const allBtn = document.getElementById('btn-all')
+const btnOpen = document.getElementById('btn-open')
+const btnClosed = document.getElementById('btn-closed')
+
+let currentStatus = []
+
+
+
+
 
 
 
@@ -9,13 +19,18 @@ const issuesCard= document.getElementById('issue-card');
 
 async function alIssue() {
 
+    loadingSpinner.classList.remove('hidden')
+    loadingSpinner.classList.add('flex')
+
      const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     // console.log(data.data)
+    loadingSpinner.classList.add('hidden')
 
-    displayIssues(data.data)
+    currentStatus =data.data;
+
+    displayIssues(currentStatus)
 }
-
 
 
 
@@ -56,13 +71,14 @@ const createElements=(arr)=>{
 
     // issues calculation
 
+    
     const totalCount = issues.length
 //    console.log(totalCount)
  issueCount.innerText = `${totalCount} Issues`
-    
 
     // console.log(issues)
 
+    issuesCard.innerHTML=''
     issues.forEach((issue) => {
 
 
@@ -130,5 +146,53 @@ const createElements=(arr)=>{
 
 
 }
+
+
+
+//  toggle
+
+  function toggleBtn (id){
+
+ 
+
+      // remove btn-primary from  all button 
+    allBtn.classList.remove('btn-primary');
+    btnOpen.classList.remove('btn-primary');
+    btnClosed.classList.remove('btn-primary');
+
+
+    
+   //  added btn-active to all button 
+    allBtn.classList.add('btn-outcome');
+    btnOpen.classList.add('btn-outcome');
+    btnClosed.classList.add('btn-outcome');
+    
+
+    // const selected = getElementId(id);
+
+    const selected = document.getElementById(id);
+  
+    selected.classList.add('btn-primary');
+    selected.classList.remove('btn-outcome');
+
+    issuesCard.innerHTML=''
+
+    if(id === 'btn-all'){
+
+      displayIssues(currentStatus)
+    } else if (id === 'btn-open'){
+        const OpenIssue = currentStatus.filter(issue => issue.status ==='open')
+        displayIssues(OpenIssue)
+    }else{
+
+  const closedIssue = currentStatus.filter(issue => issue.status ==='closed')
+        displayIssues(closedIssue)
+    }
+
+
+
+ }
+
+
 
  alIssue()

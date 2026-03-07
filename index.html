@@ -87,9 +87,9 @@
 
         <div class="bg-white p-5 rounded-sm">
  
-        <button id="btn-all" class="btn btn-primary">All</button>
-        <button id="btn-open" class="btn btn-outcome">Open</button>
-        <button id="btn-closed" class="btn btn-outcome">Closed</button>
+        <button id="btn-all" class="btn btn-primary " onclick="toggleBtn('btn-all')">All</button>
+        <button id="btn-open" class="btn btn-outcome" onclick="toggleBtn('btn-open')">Open</button>
+        <button id="btn-closed" class="btn btn-outcome" onclick="toggleBtn('btn-closed')">Closed</button>
 
 
 
@@ -116,28 +116,36 @@
 
        <div class="flex items-center gap-4">
         <span class="h-4 w-4  rounded-full bg-green-500"></span>
-        <p>Open</p>
+        <p id="open">Open</p>
 
       <span class="h-4 w-4  rounded-full bg-purple-500"></span>
-        <p>closed</p>
+        <p id="closed">closed</p>
        </div>
        
 
        </div>
 
-       <!-- card div -->
+        <div id="loading-spinner" class="h-[60vh] pl-70  justify-center items-center hidden">
+         <span class="loading loading-dots loading-xl"></span>
+         </div>
 
-       <div>
+       <!-- card div -->
 
         <div id="issue-card" class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-30">
 
           <!-- issue card -->
 
-         
+
+<!-- loading spinner -->
+
+       
 
 
         </div>
 
+        
+
+        
      </section>
 
 

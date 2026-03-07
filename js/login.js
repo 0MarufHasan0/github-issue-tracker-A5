@@ -20,7 +20,7 @@ document.getElementById('login-btn')
 if(UserValue ==="admin" && passValue === "admin123" ){
     alert('login success')
 
-    window.location.href="./index.html"
+    window.location.href="../index.html"
 }
 
 else{

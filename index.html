@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Issue Tracker | Home</title>
+    <title>Github Issue Tracker | Login page</title>
 
     <!-- fav icon -->
      <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
@@ -19,9 +19,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
-<!-- font awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 
 <!-- style -->
  <style>
@@ -30,142 +27,65 @@
         font-family: "Geist", sans-serif;
     }
  </style>
+
 </head>
+
 <body>
-
-    <!-- Nav -->
+<!-- login From -->
+<div class="min-h-screen max-w-md mx-auto pt-52">
     
-<header class="mx-10">
+    <div class="flex flex-col items-center justify-center ">
+        <img src="./assets/github-logo.png" alt="">
 
-<div>
-    <div class="navbar flex-row bg-base-100 shadow-sm">
-  <div class="flex-1">
-    <div class="flex justify-start items-center w-[37px]">
-        <img src="./assets/github-logo.png" alt="github-logo" srcset="">
-    <a class="btn btn-ghost  text-[#1F2937] text-xl">GitHub Issues Tracker</a></div>
-  </div>
-  <div class="flex gap-2">
 
-    <!-- search -->
-    <label class="input">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g
-      stroke-linejoin="round"
-      stroke-linecap="round"
-      stroke-width="2.5"
-      fill="none"
-      stroke="currentColor"
-    >
-      <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.3-4.3"></path>
-    </g>
-  </svg>
-  <input type="search" required placeholder="Search" />
-</label>
-    
-         <button class="btn btn-primary">+ New Issue</button>
-     
-      
-   
-</div>
+    <h2 class="text-2xl font-bold mt-4" >GitHub Issues Tracker</h2>
+    <p class="font-medium text-[#64748B]">Sign in to manage your issues</p>
+
+    </div>
+    <!-- from start -->
+
+    <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
+
+
+  <label class="label font-medium text-[16px] text-[#1F2937]">Username</label>
+  <input id="input-username" type="text" class="input w-full" placeholder="Enter Username" />
+  <span class="mb-2 text-[#4A00FF] text-[14px]">Default: admin</span>
+
+  <label class="label  font-medium text-[16px] text-[#1F2937]">Password</label>
+  <input id="input-password" type="password" class="input w-full" placeholder="Enter Password" />
+  <span class=" text-[#4A00FF] text-[14px]">Default: admin123</span>
+
+  <button id="login-btn" class="btn btn-primary mt-4">Sign In</button>
+
+
+  <!-- or -->
+
+
+<div class="flex items-center gap-2 m-2">
+    <div class="flex-1 border-t border-gray-300"></div>
+    <p class=" text-center">Or</p>
+      <div class="flex-1 border-t border-gray-300"></div>
 </div>
 
+<!-- Demo Credentials: -->
+ <div class="text-center">
+    <h6 class=" text-[#64748B]">Demo Credentials:</h6>
+   <div class="mt-6 font-medium text-[16px] text-[#1F2937] ">
+    <p>Username: admin</p>
+    <p>Password: admin123</p>
+   </div>
+ </div>
 
+
+
+</fieldset>
 
 </div>
 
 
-</header>
-
-
-
-<main class="bg-primary min-h-screen w-full p-10" >
-
-
-<!-- button -->
-   <section class=" container mx-auto ">
-
-        <div class="bg-white p-5 rounded-sm">
- 
-        <button id="btn-all" class="btn btn-primary " onclick="toggleBtn('btn-all')">All</button>
-        <button id="btn-open" class="btn btn-outcome" onclick="toggleBtn('btn-open')">Open</button>
-        <button id="btn-closed" class="btn btn-outcome" onclick="toggleBtn('btn-closed')">Closed</button>
-
-
-
-        </div>
-
-        </section>
+<!-- js script -->
+ <script src="./jslogin/login.js"></script>
 
     
-     <!-- count div -->
-
-     <section class=" container mx-auto  mt-10 rounded-sm border-b border-gray-300 bg-white p-10">
-
-         <div class="flex justify-between items-center ">
-        <div class="flex justify-center items-center gap-2">
-           <img src="./assets/Aperture.png" alt="Aperture.png" class="h-[50px] w-[50px]">
-            <div>
-                 
-                <h1 id="issue-count" class="text-[#1F2937] font-semibold"></h1>
-                <p class="font-medium text-[#64748B]">Track and manage your project issues</p>
-
-            </div>
-
-        </div>
-
-       <div class="flex items-center gap-4">
-        <span class="h-4 w-4  rounded-full bg-green-500"></span>
-        <p id="open">Open</p>
-
-      <span class="h-4 w-4  rounded-full bg-purple-500"></span>
-        <p id="closed">closed</p>
-       </div>
-       
-
-       </div>
-
-        <div id="loading-spinner" class="h-[60vh] pl-70  justify-center items-center hidden">
-         <span class="loading loading-dots loading-xl"></span>
-         </div>
-
-       <!-- card div -->
-
-        <div id="issue-card" class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-30">
-
-          <!-- issue card -->
-
-
-<!-- loading spinner -->
-
-       
-
-
-        </div>
-
-        
-
-        
-     </section>
-
-
-<!-- count -->
-
-
-
-
-
-
-   </section>
-     
-
-</main>
-
-
-
-
-<!-- script -->
- <script src="./js/scipt.js"></script>
-
 </body>
 </html>

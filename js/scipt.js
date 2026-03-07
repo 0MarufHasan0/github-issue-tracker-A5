@@ -6,6 +6,7 @@ const allBtn = document.getElementById('btn-all')
 const btnOpen = document.getElementById('btn-open')
 const btnClosed = document.getElementById('btn-closed')
 
+
 let currentStatus = []
 
 
@@ -100,7 +101,7 @@ const createElements=(arr)=>{
         <p class=" line-clamp-2  text-[#64748B]">${issue.description}</p>
         </div>
 <!-- button -->
-        <div class=" md:flex  items-center   gap-4  pt-5">
+        <div class=" flex flex-col md:flex-row my-4  items-center   gap-4  pt-5">
 
         ${ createElements(issue.labels)}
 
@@ -171,6 +172,7 @@ const createElements=(arr)=>{
       displayIssues(currentStatus)
     } else if (id === 'btn-open'){
         const OpenIssue = currentStatus.filter(issue => issue.status ==='open')
+        opens.classList
         displayIssues(OpenIssue)
     }else{
 

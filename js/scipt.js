@@ -58,7 +58,7 @@ function displayIssues(issues){
 
 const createElements=(arr)=>{
 
-    const htmLElement = arr.map(el => `<button class=" flex justify-center items-center gap-1 ${el ==='bug'?'text-error border border-[#FECACA] bg-[#FECACA]/40 ' : el==='documentation'?'bg-gray-300 text-yellow'
+    const htmLElement = arr.map(el => `<button class=" flex  justify-center items-center gap-1 ${el ==='bug'?'text-error border border-[#FECACA] bg-[#FECACA]/40 ' : el==='documentation'?'bg-gray-300 text-yellow'
        : el =='help wanted'? 'bg-warning/40 text-warning' : 
        el === 'enhancement' ? 'bg-success/50 text-success' :'bg-secondary/40 text-secondary'}  px-3 py-1  rounded-md "> <img src="${el==='bug'?'./assets/BugDroid.png': el==='help wanted'?'./assets/Vector.png' :'./assets/Sparkle.png' } " alt="" >  ${el.toUpperCase()}</button>`)
 
@@ -100,7 +100,7 @@ const createElements=(arr)=>{
         <p class=" line-clamp-2  text-[#64748B]">${issue.description}</p>
         </div>
 <!-- button -->
-        <div class="flex items-center gap-3 pt-5">
+        <div class=" md:flex  items-center   gap-4  pt-5">
 
         ${ createElements(issue.labels)}
 
@@ -123,17 +123,6 @@ const createElements=(arr)=>{
 
 
        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         `

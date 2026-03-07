@@ -36,26 +36,12 @@ async function alIssue() {
 
 
 
-// array
 
-const createElements=(arr)=>{
-
-    const htmLElement = arr.map(el => `<button class=" flex justify-center items-center gap-1 ${el ==='bug'?'text-error border border-[#FECACA] bg-[#FECACA]/40 ' : el==='documentation'?'bg-gray-300 text-yellow'
-       : el =='help wanted'? 'bg-warning/40 text-warning' : 
-       el === 'enhancement' ? 'bg-success/50 text-success' :'bg-secondary/40 text-secondary'}  px-3 py-1  rounded-md "> <img src="${el==='bug'?'./assets/BugDroid.png': el==='help wanted'?'./assets/Vector.png' :'./assets/Sparkle.png' } " alt="" >  ${el}</button>`)
-
-    // console.log(htmLElement)
-     return htmLElement.join('');
-
-}
-
-
-
+// display issue card
 
 function displayIssues(issues){
 
-
-    // array
+   // array
 
 const createElements=(arr)=>{
 
@@ -73,7 +59,7 @@ const createElements=(arr)=>{
     // issues calculation
 
     
-    const totalCount = issues.length
+ const totalCount = issues.length
 //    console.log(totalCount)
  issueCount.innerText = `${totalCount} Issues`
 
@@ -120,9 +106,6 @@ const createElements=(arr)=>{
 
         </div>
 
-
-
-
        </div>
         
         
@@ -130,12 +113,40 @@ const createElements=(arr)=>{
 
         issuesCard.append(cardIssues)
 
-
-
     })
 
 
 }
+
+
+
+
+
+
+//  search
+document.getElementById('btn-search').addEventListener('click',async ()=>{
+
+    const input=document.getElementById('input-search');
+    const searchValue=input.value.trim().toLowerCase();
+
+    console.log(searchValue)
+
+   
+     const res = await fetch (`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+     const data = await res.json();
+
+
+
+ displayIssues(data.data)
+      
+})
+
+
+
+
+
+
+
 
 
 
@@ -187,3 +198,6 @@ const createElements=(arr)=>{
 
 
  alIssue()
+
+
+

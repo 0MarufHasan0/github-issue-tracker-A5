@@ -172,7 +172,7 @@ const createElements=(arr)=>{
       displayIssues(currentStatus)
     } else if (id === 'btn-open'){
         const OpenIssue = currentStatus.filter(issue => issue.status ==='open')
-        opens.classList
+    
         displayIssues(OpenIssue)
     }else{
 

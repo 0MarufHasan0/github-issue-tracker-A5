@@ -18,7 +18,6 @@ document.getElementById('login-btn')
 // condition
 
 if(UserValue ==="admin" && passValue === "admin123" ){
-    alert('login success')
 
    window.location.assign('./home.html')
 }

@@ -156,7 +156,7 @@ const displayIssueModal =(issue) =>{
       <span class="text-gray-400 text-xs" >${new Date(issue.updatedAt).toLocaleDateString('en-US')}</span>
     </div>
 
-    <div class="flex gap-2 pt-7">
+    <div class="flex  gap-2 pt-7">
 
         ${ createElements(issue.labels)}
 
@@ -164,7 +164,7 @@ const displayIssueModal =(issue) =>{
 
     <p  class="  text-gray-400 text-xs pt-5">${issue.description}</p>
 
-    <div class="flex  gap-50 items-center pt-8">
+    <div class="flex gap-10  md:gap-50 items-center pt-8">
 
       <div class="space-y-1 " >
         <p  class="  text-gray-400 text-xs">Assignee:</p>
@@ -248,7 +248,7 @@ document.getElementById('btn-search').addEventListener('click',async ()=>{
         
         const OpenIssue = currentStatus.filter(issue => issue.status ==='open')
         displayIssues(OpenIssue)
-        
+
     }else{
 
   const closedIssue = currentStatus.filter(issue => issue.status ==='closed')

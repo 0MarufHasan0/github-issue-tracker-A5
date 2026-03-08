@@ -127,10 +127,13 @@ function displayIssues(issues){
 
   const loadIssuesDetail= async(id)=>{
     
+     loadingSpinner.classList.remove('hidden')
+    loadingSpinner.classList.add('flex')
 
      const res = await fetch (`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
      const data = await res.json();
      
+      loadingSpinner.classList.add('hidden')
 
      displayIssueModal(data.data)
     
@@ -141,10 +144,6 @@ function displayIssues(issues){
 }
 
 const displayIssueModal =(issue) =>{
-
-    // array
-
-
 
 
     modalId.innerHTML=`
@@ -246,9 +245,10 @@ document.getElementById('btn-search').addEventListener('click',async ()=>{
       displayIssues(currentStatus)
 
     } else if (id === 'btn-open'){
+        
         const OpenIssue = currentStatus.filter(issue => issue.status ==='open')
-    
         displayIssues(OpenIssue)
+        
     }else{
 
   const closedIssue = currentStatus.filter(issue => issue.status ==='closed')

@@ -156,7 +156,7 @@ const displayIssueModal =(issue) =>{
       <span class="text-gray-400 text-xs" >${new Date(issue.updatedAt).toLocaleDateString('en-US')}</span>
     </div>
 
-    <div class="flex  gap-2 pt-7">
+    <div class="flex md:flex-row flex-col gap-2 pt-7">
 
         ${ createElements(issue.labels)}
 
